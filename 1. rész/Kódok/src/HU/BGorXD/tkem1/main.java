@@ -38,7 +38,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
 	public void onUse(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
 				if(player.getItemInHand().getType() != Material.AIR) {
-					if(player.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§c |- §6Chunk elszívó mikkentyûizé §c -|")) {
+					if(player.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("Â§c |- Â§6Chunk elszÃ­vÃ³ mikkentyÃ»izÃ© Â§c -|")) {
 						Chunk loc = player.getLocation().getChunk();
 						e.setCancelled(true);
 						
@@ -66,7 +66,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
 		}
 				
 				if(player.getItemInHand().getType() != Material.AIR) {
-					if(player.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§c |- §eÕrláng por §c -|")) {
+					if(player.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("Â§c |- Â§eÃ•rlÃ¡ng por Â§c -|")) {
 						Location loc = player.getLocation();
 						int x = -1;
 						int z = -1;
@@ -85,38 +85,6 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
 					}
 				}
 				
-				if(player.getItemInHand().getType() != Material.AIR) {
-					if(player.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§c |- §6Ollóóóóó §c -|")) {
-						World world = player.getWorld();
-						
-						Location loc = player.getLocation();
-						int locX = loc.getBlockX()+10;
-						int locY = loc.getBlockY()+10;
-						int locZ = loc.getBlockZ()+10;
-						
-						int locX1 = loc.getBlockX()-10;
-						int locY1 = loc.getBlockY()-10;
-						int locZ1 = loc.getBlockZ()-10;
-						
-				        Location edgeMin = new Location(world, locX, locY, locZ);
-				        Location edgeMax = new Location(world, locX1, locY1, locZ1);
-
-				        List<Material> removedMaterials = new ArrayList<Material>();
-				        removedMaterials.add(Material.LEAVES);
-				        removedMaterials.add(Material.LEAVES_2);
-
-				        for (int x = edgeMin.getBlockX(); x <= edgeMax.getBlockX(); x ++) {
-				            for (int y = edgeMin.getBlockY(); y <= edgeMax.getBlockY(); y ++) {
-				                for (int z = edgeMin.getBlockZ(); z <= edgeMax.getBlockZ(); z ++) {
-				                    Block b = world.getBlockAt(x, y, z);
-				                    if(removedMaterials.contains(b.getType())){
-				                        b.setType(Material.AIR);
-				                    }
-				                }
-				            }
-				        }
-					}
-				}
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -124,7 +92,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
 			Player p = (Player) sender;
 			ItemStack is = new ItemStack(Material.MOB_SPAWNER,1);
 			ItemMeta meta = is.getItemMeta();
-			meta.setDisplayName("§c |- §6Chunk elszívó mikkentyûizé §c -|");
+			meta.setDisplayName("Â§c |- Â§6Chunk elszÃ­vÃ³ mikkentyÃ»izÃ© Â§c -|");
 			is.setItemMeta(meta);
 			p.getInventory().addItem(is);
 		}
@@ -132,18 +100,9 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
 			Player p = (Player) sender;
 			ItemStack is1 = new ItemStack(Material.BLAZE_POWDER,1);
 			ItemMeta meta1 = is1.getItemMeta();
-			meta1.setDisplayName("§c |- §eÕrláng por §c -|");
+			meta1.setDisplayName("Â§c |- Â§eÃ•rlÃ¡ng por Â§c -|");
 			is1.setItemMeta(meta1);
 			p.getInventory().addItem(is1);
-		}
-		if(label.equalsIgnoreCase("ollo")) {
-			Player p = (Player) sender;
-			ItemStack is2 = new ItemStack(Material.SHEARS);
-			ItemMeta meta2 = is2.getItemMeta();
-			meta2.setDisplayName("§c |- §6Ollóóóóó §c -|");
-			meta2.setUnbreakable(true);
-			is2.setItemMeta(meta2);
-			p.getInventory().addItem(is2);
 		}
 		return false;
 	}
