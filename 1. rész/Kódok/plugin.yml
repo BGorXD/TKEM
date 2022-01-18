@@ -1,0 +1,11 @@
+name: teszt
+author: BGorXD
+version: 1.0
+main: hu.BGorXD.tkem1.main
+commands:
+  chunkelszivo:
+    description: asd
+  orlangpor:
+    description: asd
+  ollo:
+    description: asd
